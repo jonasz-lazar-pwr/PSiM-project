@@ -1,0 +1,137 @@
+[
+    {
+        "id": 1,
+        "name": "Agorek",
+        "author": "Michał Staszczak",
+        "address": "Serbska 5A",
+        "location": "Centrum Kultury „Agora”",
+        "description": "Agorek jest utalentowany artystycznie. Maluje, śpiewa i rzeźbi, a najchętniej lepi z gliny krasnoludki.",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Agorek_%28Agora%29_Wroclaw_dwarf_01.JPG/120px-Agorek_%28Agora%29_Wroclaw_dwarf_01.JPG"
+    },
+    {
+        "id": 2,
+        "name": "Adwokatka",
+        "author": "-",
+        "address": "Prusa 1/50",
+        "location": "CHC Kancelaria Adwokacka",
+        "description": "-",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Adwokatka_%28Advocate%29_Wroclaw_dwarf_01.jpg/120px-Adwokatka_%28Advocate%29_Wroclaw_dwarf_01.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Alpinki",
+        "author": "Tomasz Moczek",
+        "address": "Strzegomska 46-56",
+        "location": "Wrocławski Park Biznesu",
+        "description": "Alpinki to trzy krasnoludki: Głazek, Zarembek i Rutek.",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Alpinki_%28Alpinists%29_Wroclaw_dwarf_01.JPG/120px-Alpinki_%28Alpinists%29_Wroclaw_dwarf_01.JPG"
+    },
+    {
+        "id": 4,
+        "name": "Ambasadorzy kampanii „Wrocław bez barier”",
+        "author": "Marta Mirynowska",
+        "address": "Rynek Ratusz 1",
+        "location": "Muzeum Sztuki Mieszczańskiej",
+        "description": "Ambasadorzy kampanii „Wrocław bez barier” to trzej krasnoludki: Głuchak, Ślepak i W-Skers.",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Trzech_ambasadorow_%28Three_ambassadors%29_Wroclaw_dwarf_01.JPG/120px-Trzech_ambasadorow_%28Three_ambassadors%29_Wroclaw_dwarf_01.JPG"
+    },
+    {
+        "id": 5,
+        "name": "Amrest",
+        "author": "Grzegorz Łagowski",
+        "address": "Międzyrzecka 4",
+        "location": "Pałac Hollenderów",
+        "description": "-",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Amrest_%28Amrest%29_Wroclaw_dwarf_02.jpg/120px-Amrest_%28Amrest%29_Wroclaw_dwarf_02.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Anka",
+        "author": "Tomasz Moczek",
+        "address": "Sokolnicza 7/17, pawilon 37",
+        "location": "Galeria Panny Młodej „Bellissima”",
+        "description": "-",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Anka_%28Anne%29_Wroclaw_dwarf_01.JPG/120px-Anka_%28Anne%29_Wroclaw_dwarf_01.JPG"
+    },
+    {
+        "id": 7,
+        "name": "Antonio Okulista",
+        "author": "Jan Żelbromski",
+        "address": "Zakładowa 11",
+        "location": "Wrocławskie Centrum Okulistyczne",
+        "description": "-",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Antonio_Okulista_%28Antonio_the_Ophthalmologist%29_Wroclaw_dwarf_02.jpg/120px-Antonio_Okulista_%28Antonio_the_Ophthalmologist%29_Wroclaw_dwarf_02.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Antykwarek",
+        "author": "Tomasz Moczek",
+        "address": "plac Tadeusza Kościuszki 15-14",
+        "location": "antykwariat „DAES”",
+        "description": "-",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Antykwarek_%28Anitquarian%29_Wroclaw_dwarf_01.JPG/120px-Antykwarek_%28Anitquarian%29_Wroclaw_dwarf_01.JPG"
+    },
+    {
+        "id": 9,
+        "name": "Aquaparczki",
+        "author": "Tomasz Moczek",
+        "address": "Borowska 99",
+        "location": "Aquapark Wrocław",
+        "description": "Moczypięta, Chlapibrzuch",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Chlapibrzuch_i_Moczypieta_%28Splasherbelly_and_Wetheeler%29_Wroclaw_dwarf_01.JPG/120px-Chlapibrzuch_i_Moczypieta_%28Splasherbelly_and_Wetheeler%29_Wroclaw_dwarf_01.JPG"
+    },
+    {
+        "id": 10,
+        "name": "Archimax",
+        "author": "Beata Zwolańska-Hołod",
+        "address": "Mikołaja Kopernika 19",
+        "location": "Dom Maxa Berga",
+        "description": "-",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Archimax_%28Archimax%29_Wroclaw_dwarf_01.jpg/120px-Archimax_%28Archimax%29_Wroclaw_dwarf_01.jpg"
+    },
+    {
+        "id": 11,
+        "name": "Artgeistki",
+        "author": "Tomasz Moczek",
+        "address": "Krakowska 37-45",
+        "location": "siedziba Artgeist.pl",
+        "description": "Malarz, Grafik",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Artgeistki_%28Artgeists%29_Wroclaw_dwarf_01.JPG/120px-Artgeistki_%28Artgeists%29_Wroclaw_dwarf_01.JPG"
+    },
+    {
+        "id": 12,
+        "name": "Asanek",
+        "author": "Marlena Zakrzewska",
+        "address": "plac Wolności 7",
+        "location": "Fabryka Energii Centrum Jogi Wrocław",
+        "description": "-",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Asanek.jpg/142px-Asanek.jpg"
+    },
+    {
+        "id": 13,
+        "name": "Atlasik",
+        "author": "Tomasz Moczek",
+        "address": "Łaciarska 4",
+        "location": "Business Centre „Save The World“",
+        "description": "-",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Krasnal_z_kul%C4%85_ziemsk%C4%85_%28Dwarf_with_globe%29_Wroclaw_dwarf_01.JPG/120px-Krasnal_z_kul%C4%85_ziemsk%C4%85_%28Dwarf_with_globe%29_Wroclaw_dwarf_01.JPG"
+    },
+    {
+        "id": 14,
+        "name": "Aurer",
+        "author": "Piotr Makała",
+        "address": "Gen. S. Grota Roweckiego 114b",
+        "location": "Osiedle Aura",
+        "description": "(Anielski)",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Aurer_%28Aurer%29_Wroclaw_dwarf_2020_P01.jpg/120px-Aurer_%28Aurer%29_Wroclaw_dwarf_2020_P01.jpg"
+    },
+    {
+        "id": 15,
+        "name": "Automatek",
+        "author": "Tomasz Moczek",
+        "address": "Łukasiewicza 7/9",
+        "location": "Wydział Mechaniczny Politechniki Wrocławskiej",
+        "description": "-",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Automatek_%28Machine-man%29_Wroclaw_dwarf_01.JPG/120px-Automatek_%28Machine-man%29_Wroclaw_dwarf_01.JPG"
+    }
+]

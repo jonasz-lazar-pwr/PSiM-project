@@ -1,3 +1,9 @@
 from django.contrib import admin
+from app.models import (User, Dwarf, UserDwarf, Comment, Achievement, UserAchievement)
 
-# Register your models here.
+admin.site.register(User)
+admin.site.register(Dwarf)
+admin.site.register(UserDwarf)
+admin.site.register(Comment)
+admin.site.register(Achievement)
+admin.site.register(UserAchievement)

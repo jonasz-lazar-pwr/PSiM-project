@@ -231,5 +231,3 @@ ENV
 **/migrations/**
 !**/migrations
 !**/migrations/__init__.py
-
-db_password.txt

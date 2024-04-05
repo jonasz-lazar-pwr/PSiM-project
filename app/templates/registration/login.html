@@ -1,0 +1,26 @@
+{% extends 'template.html' %}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title mb-4">Log in</h2>
+
+                        {% if form.errors %}
+                            <p class="card-text text-danger">Incorrect data. Please try again!</p>
+                        {% endif %}
+
+                        <form action="{% url 'login' %}" method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit" class="btn btn-primary btn-block mt-3">Zaloguj się</button>
+{#                            <input type="hidden" name="next" value="{% url 'home' %}">#}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
