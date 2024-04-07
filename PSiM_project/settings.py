@@ -56,7 +56,10 @@ ROOT_URLCONF = "PSiM_project.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / 'app/templates/app', BASE_DIR / 'app/templates/registration'],
+        "DIRS": [
+            BASE_DIR / 'app/templates/app',
+            BASE_DIR / 'app/templates/registration'
+            ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -105,9 +108,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# AUTHENTICATION_BACKENDS = [
-#     'django.contrib.auth.backends.ModelBackend',
-# ]
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
@@ -138,3 +138,5 @@ LOGOUT_REDIRECT_URL = 'login'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+AUTH_USER_MODEL = 'app.User'
