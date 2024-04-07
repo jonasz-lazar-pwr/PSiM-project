@@ -124,7 +124,6 @@ dmypy.json
 cython_debug/
 
 # Django #
-*.pot
 *.pyc
 __pycache__
 
@@ -133,6 +132,10 @@ __pycache__
 
 # If you are using PyCharm # 
 # User-specific stuff
+.idea
+*.idea
+workspace.xml
+tasks.xml
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/**/usage.statistics.xml
@@ -167,25 +170,12 @@ out/
 # JIRA plugin
 atlassian-ide-plugin.xml
 
-# Python # 
-*.py[cod] 
+# Python #
 *$py.class 
 
 # Distribution / packaging 
-.Python build/ 
-develop-eggs/ 
-dist/ 
-downloads/ 
-eggs/ 
-.eggs/ 
-lib/ 
-lib64/ 
-parts/ 
-sdist/ 
-var/ 
-wheels/ 
+.Python build/
 *.whl
-*.egg-info/ 
 .installed.cfg 
 *.egg 
 *.manifest 
@@ -195,17 +185,12 @@ wheels/
 pip-log.txt 
 pip-delete-this-directory.txt 
 
-# Unit test / coverage reports 
-htmlcov/ 
-.tox/ 
+# Unit test / coverage reports
 .coverage 
-.coverage.* 
-.cache 
-.pytest_cache/ 
+.coverage.*
 nosetests.xml 
 coverage.xml 
-*,cover 
-.hypothesis/ 
+*,cover
 
 # Jupyter Notebook 
 .ipynb_checkpoints 
@@ -222,12 +207,58 @@ celerybeat-schedule.*
 # dotenv 
 .env 
 
-# virtualenv 
-.venv 
-venv/ 
+# virtualenv
 ENV
 
 # Only for Development only
 **/migrations/**
 !**/migrations
 !**/migrations/__init__.py
+
+# Created by https://www.gitignore.io/api/intellij
+
+### Intellij ###
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
+# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+
+# User-specific stuff:
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries
+.idea/vcs.xml
+.idea/jsLibraryMappings.xml
+
+# Sensitive or high-churn files:
+.idea/dataSources.ids
+.idea/dataSources.xml
+.idea/dataSources.local.xml
+.idea/sqlDataSources.xml
+.idea/dynamic.xml
+.idea/uiDesigner.xml
+
+# Gradle:
+.idea/gradle.xml
+.idea/libraries
+
+# Mongo Explorer plugin:
+.idea/mongoSettings.xml
+
+## Plugin-specific files:
+
+# IntelliJ
+/out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
+### Intellij Patch ###
+# Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
+
+# *.iml
+# modules.xml
