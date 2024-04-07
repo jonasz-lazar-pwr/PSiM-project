@@ -128,14 +128,24 @@ cython_debug/
 __pycache__
 
 # Backup files # 
-*.bak 
+*.bak
 
-# If you are using PyCharm # 
-# User-specific stuff
+# Exclude .idea folder
+.idea/
+
 .xml
 *.xml
 .idea
 *.idea
+
+# Exclude specific files within .idea folder
+.idea/dataSources.xml
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/PSiM_project.iml
+
+# If you are using PyCharm # 
+# User-specific stuff
 workspace.xml
 tasks.xml
 .idea/**/workspace.xml
