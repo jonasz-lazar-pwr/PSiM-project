@@ -132,6 +132,8 @@ __pycache__
 
 # If you are using PyCharm # 
 # User-specific stuff
+.xml
+*.xml
 .idea
 *.idea
 workspace.xml
