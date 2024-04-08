@@ -1,0 +1,14 @@
+{% extends 'template.html' %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1 class="mb-3">Lista krasnali</h1>
+        <ul class="list-group">
+            {% for dwarf in dwarfs %}
+                <li class="list-group-item"><a href="{% url 'dwarf_detail' pk=dwarf.pk %}">{{ dwarf.name }}</a></li>
+            {% empty %}
+                <li>Brak krasnali.</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

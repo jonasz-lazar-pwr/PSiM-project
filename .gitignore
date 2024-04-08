@@ -198,8 +198,7 @@ pip-log.txt
 pip-delete-this-directory.txt 
 
 # Unit test / coverage reports
-.coverage 
-.coverage.*
+.coverage
 nosetests.xml 
 coverage.xml 
 *,cover
@@ -242,7 +241,6 @@ ENV
 
 # Sensitive or high-churn files:
 .idea/dataSources.ids
-.idea/dataSources.xml
 .idea/dataSources.local.xml
 .idea/sqlDataSources.xml
 .idea/dynamic.xml

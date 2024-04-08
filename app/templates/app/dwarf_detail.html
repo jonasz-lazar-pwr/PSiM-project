@@ -1,0 +1,41 @@
+{% extends 'template.html' %}
+
+{% block content %}
+    <div class="container mt-4">
+        <a href="{% url 'dwarfs_list' %}" class="btn btn-dark mb-3">Powrót</a>
+        <div class="row">
+            <div class="col">
+                <h1 class="mb-3">{{ dwarf.name }}</h1>
+                <p><strong>Lokalizacja:</strong> {{ dwarf.address }} ({{ dwarf.location }})</p>
+                <p><strong>Opis:</strong> {{ dwarf.description }}</p>
+                <img src="{{ dwarf.image_url }}" alt="{{ dwarf.name }}" class="img-fluid">
+            </div>
+        </div>
+
+        {% if user.is_authenticated %}
+            <div class="row mt-4">
+                <div class="col">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h2>Komentarze</h2>
+                        {% if has_unlocked %}
+                            <a href="{% url 'dwarf_comment_create' pk=dwarf.pk %}" class="btn btn-primary">Dodaj komentarz</a>
+                        {% else %}
+                            <p class="mb-0">Zeskanuj kod QR, aby dodać komentarz.</p>
+                        {% endif %}
+                    </div>
+
+                    <ul class="list-group">
+                        {% for comment in comments %}
+                            <li class="list-group-item">
+                                <p>{{ comment.comment_text }}</p>
+                                <small>{{ comment.user.username }} - {{ comment.comment_date }}</small>
+                            </li>
+                        {% empty %}
+                            <li>Brak komentarzy.</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

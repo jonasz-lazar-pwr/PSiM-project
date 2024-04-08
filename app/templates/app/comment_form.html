@@ -1,0 +1,26 @@
+{% extends 'template.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-white">
+                    <h3 class="text-dark mb-0">Dodaj komentarz do {{ dwarf.name }}</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="{% url 'dwarf_comment_create' pk=dwarf.pk %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="comment_text">Twój komentarz:</label>
+                            <textarea class="form-control mt-3" id="comment_text" name="comment_text" rows="5" placeholder="Wpisz swój komentarz tutaj" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Opublikuj</button>
+                        <a href="{% url 'dwarf_detail' pk=dwarf.pk %}" class="btn btn-danger mt-3">Anuluj</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

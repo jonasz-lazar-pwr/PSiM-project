@@ -32,6 +32,9 @@ class User(AbstractBaseUser):
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = []
 
+    class Meta:
+        db_table = 'users'
+
     def __str__(self):
         return self.username
 
