@@ -1,0 +1,45 @@
+{% extends 'template.html' %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1 class="mb-3">Moje osiągnięcia</h1>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-3"><strong>Nazwa osiągnięcia</strong></div>
+                    <div class="col-md-7"><strong>Opis</strong></div>
+                    <div class="col-md-2"><strong>Data zdobycia</strong></div>
+                </div>
+            </li>
+            {% for user_achievement in user_achievements %}
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-md-3">{{ user_achievement.achievement.name }}</div>
+                        <div class="col-md-7">{{ user_achievement.achievement.description }}</div>
+                        <div class="col-md-2">{{ user_achievement.achievement_date|date:"j F Y" }}</div>
+                    </div>
+                </li>
+            {% empty %}
+                <li>Brak osiągnięć.</li>
+            {% endfor %}
+        </ul>
+        <h1 class="mb-3 mt-4">Do zdobycia</h1>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-3"><strong>Nazwa osiągnięcia</strong></div>
+                    <div class="col-md-9"><strong>Opis</strong></div>
+                </div>
+            {% for achievement in achievements_to_gain %}
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-md-3">{{ achievement.name }}</div>
+                        <div class="col-md-9">{{ achievement.description }}</div>
+                    </div>
+                </li>
+            {% empty %}
+                <li>Wszystkie osiągnięcia zdobyte.</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

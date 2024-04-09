@@ -30,7 +30,6 @@
                 Wrocławskie Krasnale
                 <i class="bi bi-house" style="margin-left: 5px;"></i>
             </a>
-
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -38,16 +37,25 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     {% if request.path != '/dwarfs/' %}
-                        <a class="nav-link link" href="{% url 'dwarfs_list' %}">Przeglądaj krasnale</a>
+                        <a class="nav-link link" href="{% url 'dwarfs_list' %}">Krasnale</a>
+                    {% endif %}
+                    {% if user.is_authenticated and request.path != '/ranking/' %}
+                        <a class="nav-link link" href="{% url 'users_ranking' %}">Ranking</a>
+                    {% endif %}
+                    {% if user.is_authenticated and request.path != '/achievements/' %}
+                        <a class="nav-link link" href="{% url 'user_achievements' %}">Osiągnięcia</a>
+                    {% endif %}
+                    {% if user.is_authenticated and request.path != '/scan_qr_code/' %}
+                        <a class="nav-link link" href="{% url 'scan_qr_code' %}">Skanuj QR</a>
                     {% endif %}
                 </div>
                 <div class="navbar-nav ms-auto">
                     {% if user.is_authenticated %}
                         <span class="navbar-text welcome-text">Witaj: {{ user.username }}</span>
-                        <a class="nav-link" href="{% url 'logout' %}">Wyloguj się</a>
+                        <a class="nav-link link" href="{% url 'logout' %}">Wyloguj się</a>
                     {% else %}
                         {% if request.path != '/login/' and request.path != '/register/' %}
-                            <a class="nav-link" href="{% url 'login' %}">Zaloguj się</a>
+                            <a class="nav-link link" href="{% url 'login' %}">Zaloguj się</a>
                         {% endif %}
                     {% endif %}
                 </div>

@@ -31,3 +31,5 @@
 #### W przyszłości:
 - Rejestracja użytkowników.
 - Zarządzanie profilem użytkownika.
+
+- TODO: Ogarnąć odznaki(osiągnięcia) i momenty ich nadawania (za liczbę odblokowanych krasnali i dodanych komentarzy)

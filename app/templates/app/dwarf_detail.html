@@ -2,7 +2,6 @@
 
 {% block content %}
     <div class="container mt-4">
-        <a href="{% url 'dwarfs_list' %}" class="btn btn-dark mb-3">Powrót</a>
         <div class="row">
             <div class="col">
                 <h1 class="mb-3">{{ dwarf.name }}</h1>
@@ -18,7 +17,10 @@
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h2>Komentarze</h2>
                         {% if has_unlocked %}
-                            <a href="{% url 'dwarf_comment_create' pk=dwarf.pk %}" class="btn btn-primary">Dodaj komentarz</a>
+                            <p class="mb-0">{{ user_comments_count }}/3 umieszczone komentarze</p>
+                            {% if user_comments_count < 3 %}
+                                <a href="{% url 'dwarf_comment_create' pk=dwarf.pk %}" class="btn btn-primary">Dodaj komentarz</a>
+                            {% endif %}
                         {% else %}
                             <p class="mb-0">Zeskanuj kod QR, aby dodać komentarz.</p>
                         {% endif %}
@@ -26,9 +28,14 @@
 
                     <ul class="list-group">
                         {% for comment in comments %}
-                            <li class="list-group-item">
-                                <p>{{ comment.comment_text }}</p>
-                                <small>{{ comment.user.username }} - {{ comment.comment_date }}</small>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <p>{{ comment.comment_text }}</p>
+                                    <small>{{ comment.user.username }} - {{ comment.comment_date|date:"j F Y, G:i" }}</small>
+                                </div>
+                                {% if request.user == comment.user %}
+                                    <a href="{% url 'dwarf_comment_delete' pk=comment.pk %}" class="text-danger">Usuń komentarz</a>
+                                {% endif %}
                             </li>
                         {% empty %}
                             <li>Brak komentarzy.</li>

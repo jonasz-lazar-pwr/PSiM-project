@@ -31,3 +31,7 @@ class CommentForm(forms.ModelForm):
         labels = {
             'comment_text': 'Treść komentarza',
         }
+
+
+class UploadQRCodeForm(forms.Form):
+    qr_code_image = forms.ImageField()

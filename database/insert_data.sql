@@ -67,14 +67,42 @@ VALUES
     ('Commentator', 'Dodałeś komentarz do co najmniej 5 krasnali.'),
     ('Traveler', 'Odwiedziłeś więcej niż 10 krasnali.'),
     ('Super Explorer', 'Odwiedziłeś więcej niż 15 krasnali.'),
-    ('Dwarf Master', 'Odwiedziłeś co najmniej 20 krasnali i dodałeś komentarz do co najmniej 10 z nich.');
+    ('Dwarf Master', 'Odwiedziłeś co najmniej 20 krasnali i dodałeś komentarz do co najmniej 10 z nich.'),
+    ('Achievement 6', 'Opis osiągnięcia 6.'),
+    ('Achievement 7', 'Opis osiągnięcia 7.'),
+    ('Achievement 8', 'Opis osiągnięcia 8.'),
+    ('Achievement 9', 'Opis osiągnięcia 9.'),
+    ('Achievement 10', 'Opis osiągnięcia 10.');
 
 
 -- Dodanie osiągnięć dla użytkowników
+-- Dla użytkownika o id=1
 INSERT INTO userachievements (user_id, achievement_id, achievement_date)
-VALUES
-    (1, 1, NOW()),
-    (2, 2, NOW()),
-    (3, 3, NOW()),
-    (4, 4, NOW()),
-    (5, 5, NOW());
+SELECT
+    1 AS user_id,
+    id AS achievement_id,
+    CURRENT_TIMESTAMP AS achievement_date
+FROM
+    achievements
+LIMIT 5;
+
+-- Dla użytkownika o id=2
+INSERT INTO userachievements (user_id, achievement_id, achievement_date)
+SELECT
+    2 AS user_id,
+    id AS achievement_id,
+    CURRENT_TIMESTAMP AS achievement_date
+FROM
+    achievements
+LIMIT 5;
+
+-- Dla użytkownika o id=3
+INSERT INTO userachievements (user_id, achievement_id, achievement_date)
+SELECT
+    3 AS user_id,
+    id AS achievement_id,
+    CURRENT_TIMESTAMP AS achievement_date
+FROM
+    achievements
+LIMIT 5;
+

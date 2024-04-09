@@ -3,9 +3,24 @@
 {% block content %}
     <div class="container mt-4">
         <h1 class="mb-3">Lista krasnali</h1>
+        <form method="get">
+            <div class="input-group mb-3">
+                <label>
+                    <input type="text" class="form-control" placeholder="Wyszukaj krasnala" name="q" value="{{ request.GET.q }}">
+                </label>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit">Wyszukaj</button>
+                </div>
+            </div>
+        </form>
         <ul class="list-group">
             {% for dwarf in dwarfs %}
-                <li class="list-group-item"><a href="{% url 'dwarf_detail' pk=dwarf.pk %}">{{ dwarf.name }}</a></li>
+                <li class="list-group-item">
+                    <a href="{% url 'dwarf_detail' pk=dwarf.pk %}">{{ dwarf.name }}</a>
+                    {% if dwarf.id in user_dwarfs %}
+                        <span> - zdobyty</span>
+                    {% endif %}
+                </li>
             {% empty %}
                 <li>Brak krasnali.</li>
             {% endfor %}

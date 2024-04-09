@@ -1,0 +1,27 @@
+{% extends 'template.html' %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1 class="mb-3">Ranking użytkowników</h1>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-2"><strong>Numer w rankingu</strong></div>
+                    <div class="col-md-5"><strong>Nazwa użytkownika</strong></div>
+                    <div class="col-md-5"><strong>Liczba odwiedzonych krasnali</strong></div>
+                </div>
+            </li>
+            {% for user in users %}
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-md-2">{{ forloop.counter }}</div>
+                        <div class="col-md-5">{{ user.username }}</div>
+                        <div class="col-md-5">{{ user.num_dwarfs }}</div>
+                    </div>
+                </li>
+            {% empty %}
+                <li>Brak użytkowników.</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
