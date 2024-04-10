@@ -100,7 +100,10 @@ class Comment(models.Model):
 class Achievement(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100, unique=True)
+    comment_count = models.IntegerField()
+    dwarf_count = models.IntegerField()
     description = models.TextField()
+    badge_icon = models.CharField(max_length=255)
 
     class Meta:
         managed = True

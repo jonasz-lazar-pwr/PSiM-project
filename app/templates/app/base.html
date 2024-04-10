@@ -42,8 +42,11 @@
                     {% if user.is_authenticated and request.path != '/ranking/' %}
                         <a class="nav-link link" href="{% url 'users_ranking' %}">Ranking</a>
                     {% endif %}
-                    {% if user.is_authenticated and request.path != '/achievements/' %}
+                    {% if user.is_authenticated and request.path != '/my_achievements/' %}
                         <a class="nav-link link" href="{% url 'user_achievements' %}">Osiągnięcia</a>
+                    {% endif %}
+                    {% if user.is_authenticated and request.path != '/my_comments/' %}
+                        <a class="nav-link link" href="{% url 'user_comments' %}">Komentarze</a>
                     {% endif %}
                     {% if user.is_authenticated and request.path != '/scan_qr_code/' %}
                         <a class="nav-link link" href="{% url 'scan_qr_code' %}">Skanuj QR</a>
