@@ -10,12 +10,12 @@ Projekt składa się z kilku głównych folderów i plików, które są opisane 
     - **`app/static/js/`**: Folder zawierający skrypty JavaScript używane w projekcie.
     - **`app/static/img/`**: Folder zawierający obrazy używane w projekcie.
   - **`app/templates/`**: Folder zawierający szablony HTML używane w projekcie.
-    - **`app/templates/app/`**: Folder zawierający szablony HTML specyficzne dla aplikacji.
+    - **`app/templates/app/`**: Folder zawierający szablony HTML dla aplikacji.
       - **`app/templates/app/base.html`**: Główny szablon HTML, z którego dziedziczą inne szablony.
-      - **`app/templates/app/comment_form.html`**: Szablon HTML dla formularza komentarzy.
+      - **`app/templates/app/comment_form.html`**: Szablon HTML reprezentujący formularz komentarza.
       - **`app/templates/app/dwarf_detail.html`**: Szablon HTML wyświetlający szczegóły krasnala.
       - **`app/templates/app/dwarfs.html`**: Szablon HTML wyświetlający listę krasnali.
-      - **`app/templates/app/home.html`**: Szablon HTML dla strony głównej.
+      - **`app/templates/app/home.html`**: Szablon HTML dla strony głównej, z której można przejść do innych podstron.
       - **`app/templates/app/scan_qr_code.html`**: Szablon HTML dla funkcji skanowania kodów QR.
       - **`app/templates/app/user_achievements.html`**: Szablon HTML wyświetlający osiągnięcia użytkownika.
       - **`app/templates/app/user_comments.html`**: Szablon HTML wyświetlający komentarze użytkownika.
@@ -27,7 +27,7 @@ Projekt składa się z kilku głównych folderów i plików, które są opisane 
   - `app/forms.py`: Plik zawierający definicje formularzy Django używanych w projekcie.
   - `app/models.py`: Plik zawierający definicje modeli Django, które są używane do tworzenia tabel w bazie danych.
   - `app/views.py`: Plik zawierający definicje widoków Django, które są używane do obsługi żądań HTTP.
-  - `app/urls.py`: Plik definiujący mapę URL dla aplikacji.
+  - `app/urls.py`: Plik definiujący mapę adresów URL w aplikacji.
 
 - **`database/`**: Folder zawierający pliki związane z bazą danych.
   - `database/create_database.sql`: Plik SQL używany do tworzenia struktury bazy danych.
@@ -75,7 +75,7 @@ Pozostałe pliki i foldery wygenerowane automatycznie przez Django nie zostały 
     pip install -r requirements.txt
     ```
 
-5. **Zainstaluj pakiet `python-decouple`, który pozwoli na odczytanie zmiennych środowiskowych z pliku `.env`. Możesz to zrobić za pomocą następującej komendy:**
+5. **Upewnij się, że masz zainstalowany pakiet `python-decouple`, który pozwoli na odczytanie zmiennych środowiskowych z pliku `.env`. Możesz to zrobić za pomocą następującej komendy:**
 
     ```bash
     pip install python-decouple

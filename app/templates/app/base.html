@@ -36,20 +36,24 @@
 
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    {% if request.path != '/dwarfs/' %}
-                        <a class="nav-link link" href="{% url 'dwarfs_list' %}">Krasnale</a>
-                    {% endif %}
-                    {% if user.is_authenticated and request.path != '/ranking/' %}
-                        <a class="nav-link link" href="{% url 'users_ranking' %}">Ranking</a>
-                    {% endif %}
-                    {% if user.is_authenticated and request.path != '/my_achievements/' %}
-                        <a class="nav-link link" href="{% url 'user_achievements' %}">Osiągnięcia</a>
-                    {% endif %}
-                    {% if user.is_authenticated and request.path != '/my_comments/' %}
-                        <a class="nav-link link" href="{% url 'user_comments' %}">Komentarze</a>
-                    {% endif %}
-                    {% if user.is_authenticated and request.path != '/scan_qr_code/' %}
-                        <a class="nav-link link" href="{% url 'scan_qr_code' %}">Skanuj QR</a>
+                    {% if request.path != '/' %}
+                        {% block navbar_buttons %}
+                        {% if request.path != '/dwarfs/' %}
+                            <a class="nav-link link" href="{% url 'dwarfs_list' %}">Krasnale</a>
+                        {% endif %}
+                        {% if user.is_authenticated and request.path != '/ranking/' %}
+                            <a class="nav-link link" href="{% url 'users_ranking' %}">Ranking</a>
+                        {% endif %}
+                        {% if user.is_authenticated and request.path != '/my_achievements/' %}
+                            <a class="nav-link link" href="{% url 'user_achievements' %}">Osiągnięcia</a>
+                        {% endif %}
+                        {% if user.is_authenticated and request.path != '/my_comments/' %}
+                            <a class="nav-link link" href="{% url 'user_comments' %}">Komentarze</a>
+                        {% endif %}
+                        {% if user.is_authenticated and request.path != '/scan_qr_code/' %}
+                            <a class="nav-link link" href="{% url 'scan_qr_code' %}">Skanuj QR</a>
+                        {% endif %}
+                        {% endblock %}
                     {% endif %}
                 </div>
                 <div class="navbar-nav ms-auto">

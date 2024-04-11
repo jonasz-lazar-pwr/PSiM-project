@@ -10,6 +10,7 @@
                 {% elif user.is_authenticated %}
                     <p class="text-danger">Niezdobyty</p>
                 {% endif %}
+                <p><strong>Autor:</strong> {{ dwarf.author }}</p>
                 <p><strong>Lokalizacja:</strong> {{ dwarf.address }} ({{ dwarf.location }})</p>
                 <p><strong>Opis:</strong> {{ dwarf.description }}</p>
                 <img src="{{ dwarf.image_url }}" alt="{{ dwarf.name }}" class="img-fluid">
