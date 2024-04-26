@@ -13,6 +13,14 @@ from django.views.decorators.csrf import csrf_exempt
 from .forms import CommentForm, LoginForm, RegisterForm
 from .models import Achievement, Comment, Dwarf, User, UserAchievement, UserDwarf
 
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
+from .serializers import LoginSerializer
+
+from drf_yasg.utils import swagger_auto_schema
+from rest_framework.views import APIView
+
 
 def home_view(request):
     """
@@ -44,33 +52,58 @@ def register_view(request):
     return render(request, 'register.html', {'form': form})
 
 
-def login_view(request):
+class LoginView(APIView):
     """
-    Funkcja widoku Django, która obsługuje proces logowania użytkownika.
+    Widok logowania użytkownika.
 
-    1. Sprawdza, czy metoda żądania to 'POST'.
-    2. Pobiera dane z formularza logowania.
-    3. Jeżeli formularz jest prawidłowy, pobiera nazwę użytkownika i hasło z formularza.
-    4. Autentykuje użytkownika za pomocą nazwy użytkownika i hasła.
-    5. Jeżeli użytkownik jest prawidłowy, loguje użytkownika i przekierowuje go do strony głównej.
-    6. Jeżeli użytkownik nie jest prawidłowy lub formularz nie jest prawidłowy, wyświetla błąd.
-    7. Jeżeli metoda żądania nie jest 'POST', renderuje formularz logowania.
+    Jeżeli metoda żądania to 'POST', próbuje zalogować użytkownika za pomocą danych przesłanych w żądaniu.
+    Jeżeli logowanie jest udane, zwraca odpowiedź z adresem URL do strony głównej.
+    Jeżeli logowanie nie jest udane, zwraca błąd z informacją o nieprawidłowym loginie lub haśle.
+    Jeżeli metoda żądania to 'GET', renderuje formularz logowania.
     """
-    if request.method == 'POST':
-        form = LoginForm(data=request.POST)
-        if form.is_valid():
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
+
+    @swagger_auto_schema(request_body=LoginSerializer)
+    def post(self, request):
+        serializer = LoginSerializer(data=request.data)
+        if serializer.is_valid():
+            username = serializer.validated_data.get('username')
+            password = serializer.validated_data.get('password')
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('home')
+                return Response({"url": reverse('home')}, status=status.HTTP_200_OK)
             else:
-                messages.error(request, "Invalid username or password.")
-        else:
-            messages.error(request, "Invalid username or password.")
-    form = LoginForm()
-    return render(request=request, template_name="login.html", context={"form": form})
+                return Response({"detail": "Invalid username or password."}, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def get(self, request):
+        return render(request=request, template_name="login.html", context={"form": LoginForm()})
+
+
+# @api_view(['GET', 'POST'])
+# def login_view(request):
+#     """
+#     Widok logowania użytkownika.
+#
+#     Jeżeli metoda żądania to 'POST', próbuje zalogować użytkownika za pomocą danych przesłanych w żądaniu.
+#     Jeżeli logowanie jest udane, zwraca odpowiedź z adresem URL do strony głównej.
+#     Jeżeli logowanie nie jest udane, zwraca błąd z informacją o nieprawidłowym loginie lub haśle.
+#     Jeżeli metoda żądania to 'GET', renderuje formularz logowania.
+#     """
+#     if request.method == 'POST':
+#         serializer = LoginSerializer(data=request.data)
+#         if serializer.is_valid():
+#             username = serializer.validated_data.get('username')
+#             password = serializer.validated_data.get('password')
+#             user = authenticate(username=username, password=password)
+#             if user is not None:
+#                 login(request, user)
+#                 return Response({"url": reverse('home')}, status=status.HTTP_200_OK)
+#             else:
+#                 return Response({"detail": "Invalid username or password."}, status=status.HTTP_400_BAD_REQUEST)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+#     else:
+#         return render(request=request, template_name="login.html", context={"form": LoginForm()})
 
 
 def dwarfs_list_view(request):

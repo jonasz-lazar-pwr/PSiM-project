@@ -1,5 +1,5 @@
 from django.urls import path
-from app import views
+from . import views
 
 urlpatterns = [
     path('', views.home_view, name='home'),
@@ -13,5 +13,5 @@ urlpatterns = [
     path('my_comments/', views.user_comments_view, name='user_comments'),
     path('my_achievements/', views.user_achievements_view, name='user_achievements'),
     path('scan_qr_code/', views.scan_qr_code, name='scan_qr_code'),
-    path('verify_qr_code', views.verify_qr_code, name='verify_qr_code')
+    path('verify_qr_code/', views.verify_qr_code, name='verify_qr_code')
 ]
