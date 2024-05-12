@@ -130,11 +130,9 @@ Projekt składa się z dwóch głównych części: backendu (Django) i frontendu
 
 ---
 
-Przykładową implementację projektu można zobaczyć na stronie [https://wroclawskie-krasnale-28f39b99bec7.herokuapp.com/](https://wroclawskie-krasnale-28f39b99bec7.herokuapp.com/).
-
 Projekt został zrealizowany w ramach kursu "Projektowanie Systemów Internetowych i Mobilnych" na Politechnice Wrocławskiej.
 
----
+Implementację projektu można zobaczyć na stronie [https://wroclawskie-krasnale-28f39b99bec7.herokuapp.com/](https://wroclawskie-krasnale-28f39b99bec7.herokuapp.com/).
 
 ## Autorzy
 - Jonasz Lazar
