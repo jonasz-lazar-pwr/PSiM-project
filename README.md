@@ -2,54 +2,48 @@
 
 ## Struktura projektu
 
-Projekt składa się z kilku głównych folderów i plików, które są opisane poniżej:
+Projekt składa się z dwóch głównych części: backendu (Django) i frontendu (React). Poniżej znajduje się opis struktury katalogów i plików w projekcie:
 
-- **`app/`**: Główny folder aplikacji Django. Zawiera wszystkie pliki związane z logiką aplikacji.
-  - **`app/static/`**: Folder zawierający statyczne pliki używane w projekcie, takie jak obrazy, skrypty JavaScript i arkusze stylów CSS.
-    - **`app/static/css/`**: Folder zawierający arkusze stylów CSS używane w projekcie.
-    - **`app/static/js/`**: Folder zawierający skrypty JavaScript używane w projekcie.
-    - **`app/static/img/`**: Folder zawierający obrazy używane w projekcie.
-  - **`app/templates/`**: Folder zawierający szablony HTML używane w projekcie.
-    - **`app/templates/app/`**: Folder zawierający szablony HTML dla aplikacji.
-      - **`app/templates/app/base.html`**: Główny szablon HTML, z którego dziedziczą inne szablony.
-      - **`app/templates/app/comment_form.html`**: Szablon HTML reprezentujący formularz komentarza.
-      - **`app/templates/app/dwarf_detail.html`**: Szablon HTML wyświetlający szczegóły krasnala.
-      - **`app/templates/app/dwarfs.html`**: Szablon HTML wyświetlający listę krasnali.
-      - **`app/templates/app/home.html`**: Szablon HTML dla strony głównej, z której można przejść do innych podstron.
-      - **`app/templates/app/scan_qr_code.html`**: Szablon HTML dla funkcji skanowania kodów QR.
-      - **`app/templates/app/user_achievements.html`**: Szablon HTML wyświetlający osiągnięcia użytkownika.
-      - **`app/templates/app/user_comments.html`**: Szablon HTML wyświetlający komentarze użytkownika.
-      - **`app/templates/app/user_ranking.html`**: Szablon HTML wyświetlający ranking użytkowników.
-    - **`app/templates/registration/`**: Folder zawierający szablony HTML używane do obsługi rejestracji i logowania użytkowników.
-      - **`app/templates/registration/login.html`**: Szablon HTML dla strony logowania.
-      - **`app/templates/registration/register.html`**: Szablon HTML dla strony rejestracji.
-  - `app/admin.py`: Plik konfigurujący panel administracyjny Django.
-  - `app/forms.py`: Plik zawierający definicje formularzy Django używanych w projekcie.
-  - `app/models.py`: Plik zawierający definicje modeli Django, które są używane do tworzenia tabel w bazie danych.
-  - `app/views.py`: Plik zawierający definicje widoków Django, które są używane do obsługi żądań HTTP.
-  - `app/urls.py`: Plik definiujący mapę adresów URL w aplikacji.
+- **`PSiM_project/`**: Główny katalog projektu Django.
+  - **`PSiM_project/settings.py`**: Plik konfiguracyjny Django, zawierający ustawienia takie jak konfiguracja bazy danych, zainstalowane aplikacje, middleware i inne.
+  - **`PSiM_project/urls.py`**: Plik definiujący główną mapę URL dla projektu Django.
+  - **`PSiM_project/asgi.py`**: Plik konfiguracyjny ASGI dla serwera Django.
+  - **`PSiM_project/wsgi.py`**: Plik konfiguracyjny WSGI dla serwera Django.
+- **`backend/`**: Folder zawierający pliki związane z backendem stworzonym w Django.
+  - **`backend/migrations/`**: Folder zawierający migracje Django.
+  - **`backend/admin.py`**: Plik zawierający konfigurację panelu administracyjnego Django.
+  - **`backend/apps.py`**: Plik zawierający konfigurację aplikacji Django.
+  - **`backend/models.py`**: Plik zawierający modele Django.
+  - **`backend/serializers.py`**: Plik zawierający serializatory Django REST Framework.
+  - **`backend/tests.py`**: Plik, w którym można umieścić testy jednostkowe dla aplikacji Django.
+  - **`backend/urls.py`**: Plik zawierający mapę URL dla aplikacji Django.
+  - **`backend/utils.py`**: Plik zawierający funkcje pomocnicze.
+  - **`backend/views.py`**: Plik zawierający widoki Django (wg wzorca Django REST Framework).
+- **`frontend/`**: Folder zawierający pliki związane z frontendem stworzonym w React.
+  - **`frontend/public/`**: Folder zawierający pliki publiczne, takie jak pliki HTML, ikony, obrazy itp.
+  - **`frontend/src/`**: Folder zawierający pliki źródłowe React.
+    - **`frontend/src/components/`**: Folder zawierający komponenty React.
+    - **`frontend/src/pages/`**: Folder zawierający strony React.
+    - **`frontend/src/context/`**: Folder zawierający kontekst React.
+    - **`frontend/src/App.js`**: Plik zawierający główny komponent aplikacji React.
+    - **`frontend/src/index.js`**: Plik zawierający punkt wejścia dla aplikacji React.
+  - **`frontend/.env`**: Plik zawierający zmienne środowiskowe dla aplikacji React. *Plik ten nie jest dodany do repozytorium, ponieważ zawiera poufne dane.*
+  - **`frontend/package.json`**: Plik zawierający informacje o projekcie, zależności i skrypty.
+- **`database/`**: Folder zawierający pliki związane z stworzeniem i wypełnieniem bazy danych.
+  - **`database/create_database.sql`**: Plik SQL używany do tworzenia struktury bazy danych.
+  - **`database/insert_data.sql`**: Plik SQL używany do wstawiania danych do bazy danych.
+  - **`database/insert_dwarfs.py`**: Plik Pythona używany do ładowania danych o krasnalach do bazy danych.
+  - **`database/dwarfs.json`**: Plik JSON zawierający dane o krasnalach.
+- **`QR_codes/`**: Folder zawierający kody QR używane w projekcie. 
+  - **`QR_codes/download_qr_codes.py`**: Skrypt Pythona do pobierania kodów QR.
+  - **`QR_codes/*.png`**: Pliki obrazów kodów QR.
+- **`README.md`**: Plik zawierający informacje o projekcie, takie jak opisy plików i katalogów, instrukcje instalacji i uruchomienia projektu.
+- **`requirements.txt`**: Plik zawierający listę zależności Pythona.
+- **`.gitignore`**: Plik zawierający listę plików i katalogów, które mają być ignorowane przez system kontroli wersji Git.
+- **`.env`**: Plik zawierający zmienne środowiskowe dla projektu Django. *Plik ten nie jest dodany do repozytorium, ponieważ zawiera poufne dane.*
+- **`manage.py`**: Plik zarządzający Django.
 
-- **`database/`**: Folder zawierający pliki związane z bazą danych.
-  - `database/create_database.sql`: Plik SQL używany do tworzenia struktury bazy danych.
-  - `database/insert_data.sql`: Plik SQL używany do wstawiania danych do bazy danych.
-  - `database/insert_dwarfs.py`: Plik Pythona używany do ładowania danych o krasnalach do bazy danych.
-  - `database/dwarfs.json`: Plik JSON zawierający dane o krasnalach.
-
-- **`PSiM_project/`**: Folder zawierający pliki konfiguracyjne Django.
-  - `PSiM_project/settings.py`: Plik konfiguracyjny Django, zawierający ustawienia takie jak konfiguracja bazy danych, zainstalowane aplikacje, middleware i inne.
-  - `PSiM_project/urls.py`: Plik definiujący główną mapę URL dla projektu Django.
-
-- **`qr_codes/`**: Folder zawierający kody QR używane w projekcie.
-  - `qr_codes/download_qr_codes.py`: Skrypt Pythona do pobierania kodów QR.
-  - `qr_codes/*.png`: Pliki obrazów kodów QR.
-
-- `README.md`: Plik zawierający podstawowe informacje o projekcie, takie jak opis, instrukcje instalacji i użycia.
-- `.gitignore`: Plik używany przez Git do ignorowania określonych plików i folderów podczas śledzenia zmian.
-- `requirements.txt`: Plik zawierający listę zależności Pythona wymaganych do uruchomienia projektu.
-
-Pozostałe pliki i foldery wygenerowane automatycznie przez Django nie zostały modyfikowane i nie są wymienione powyżej.
-
-## Instalacja i uruchomienie
+## Instalacja i uruchomienie backendu (Django oraz baza danych)
 
 1. **Sklonuj repozytorium na swoje lokalne środowisko.**
 
@@ -112,3 +106,30 @@ Pozostałe pliki i foldery wygenerowane automatycznie przez Django nie zostały 
     ```
 
 9. **Otwórz przeglądarkę internetową i przejdź do odpowiedniego adresu `http://localhost:8000/`.**
+
+
+## Instalacja i uruchomienie frontendu (React)
+
+1. **Zainstaluj Node.js na swoim komputerze. Możesz pobrać Node.js ze strony [https://nodejs.org/](https://nodejs.org/).**
+
+2. **W głównym katalogu projektu utwórz nowy projekt React za pomocą komendy `npx create-react-app <nazwa_projektu>`.**
+
+3. **Przejdź do katalogu projektu React `/frontend` i zainstaluj wymagane pakiety za pomocą komendy `npm install`.**
+
+4. **Utwórz plik `.env` w katalogu projektu React i dodaj do niego następujące dane:**
+
+    ```dotenv
+    GENERATE_SOURCEMAP=false
+    REACT_APP_API_URL='http://localhost:8000'
+    ```
+    Zastąp powyższą wartość rzeczywistym adresem URL backendu Django.
+
+5. **Uruchom serwer deweloperski React za pomocą komendy `npm start`.**
+
+6. **Otwórz przeglądarkę internetową i przejdź do odpowiedniego adresu `http://localhost:3000/`.**
+
+Przykładową implementację projektu można zobaczyć na stronie [https://wroclawskie-krasnale-28f39b99bec7.herokuapp.com/](https://wroclawskie-krasnale-28f39b99bec7.herokuapp.com/).
+
+## Autorzy
+- Jonasz Lazar
+- Kazper Malinowski
