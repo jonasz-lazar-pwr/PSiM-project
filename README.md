@@ -132,4 +132,4 @@ Przykładową implementację projektu można zobaczyć na stronie [https://wrocl
 
 ## Autorzy
 - Jonasz Lazar
-- Kazper Malinowski
+- Kacper Malinowski
