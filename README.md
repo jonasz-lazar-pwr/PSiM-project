@@ -42,6 +42,8 @@ Projekt składa się z dwóch głównych części: backendu (Django) i frontendu
 - **`.gitignore`**: Plik zawierający listę plików i katalogów, które mają być ignorowane przez system kontroli wersji Git.
 - **`.env`**: Plik zawierający zmienne środowiskowe dla projektu Django. *Plik ten nie jest dodany do repozytorium, ponieważ zawiera poufne dane.*
 - **`manage.py`**: Plik zarządzający Django.
+- **`API_Redoc.json`**: Plik zawierający dokumentację API w formacie JSON (Redoc).
+- **`API_Swagger.json`**: Plik zawierający dokumentację API w formacie JSON (Swagger).
 
 ## Instalacja i uruchomienie backendu (Django oraz baza danych)
 

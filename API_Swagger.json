@@ -1,0 +1,815 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API projektu PSiM",
+    "description": "Dokumentacja API do projektu PSiM",
+    "version": "v1"
+  },
+  "host": "localhost:8000",
+  "schemes": [
+    "http"
+  ],
+  "basePath": "/",
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "Basic": {
+      "type": "basic"
+    }
+  },
+  "security": [
+    {
+      "Basic": []
+    }
+  ],
+  "paths": {
+    "/achievements_to_gain/": {
+      "get": {
+        "operationId": "achievements_to_gain_list",
+        "description": "Widok listy osiągnięć do zdobycia przez użytkownika.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Achievement"
+              }
+            }
+          }
+        },
+        "tags": [
+          "achievements_to_gain"
+        ]
+      },
+      "parameters": []
+    },
+    "/comments/{id}/": {
+      "delete": {
+        "operationId": "comments_delete",
+        "description": "Usuwanie komentarza.",
+        "parameters": [],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Nie znaleziono komentarza."
+          }
+        },
+        "tags": [
+          "comments"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A unique integer value identifying this comment.",
+          "required": true,
+          "type": "integer"
+        }
+      ]
+    },
+    "/dwarfs/": {
+      "get": {
+        "operationId": "dwarfs_list",
+        "description": "Pobranie listy krasnoludków.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Lista krasnoludków, liczba wszystkich krasnoludków oraz liczba krasnoludków odwiedzonych przez zalogowanego użytkownika.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "total_dwarfs": {
+                  "description": "Total number of dwarfs",
+                  "type": "integer"
+                },
+                "user_dwarfs_count": {
+                  "description": "Number of dwarfs visited by the user",
+                  "type": "integer"
+                },
+                "dwarfs": {
+                  "description": "List of dwarfs",
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "dwarfs"
+        ]
+      },
+      "parameters": []
+    },
+    "/dwarfs/{id}/": {
+      "get": {
+        "operationId": "dwarfs_read",
+        "description": "Widok szczegółów krasnoludka.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DwarfDetail"
+            }
+          }
+        },
+        "tags": [
+          "dwarfs"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "A unique value identifying this dwarf.",
+          "required": true,
+          "type": "integer"
+        }
+      ]
+    },
+    "/dwarfs/{id}/comments/": {
+      "post": {
+        "operationId": "dwarfs_comments_create",
+        "description": "Tworzenie komentarza.",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CommentCreate"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Utworzenie komentarza udane.",
+            "schema": {
+              "$ref": "#/definitions/CommentCreate"
+            }
+          },
+          "400": {
+            "description": "Błąd walidacji."
+          },
+          "401": {
+            "description": "Nieautoryzowany."
+          },
+          "403": {
+            "description": "Zabronione."
+          }
+        },
+        "tags": [
+          "dwarfs"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/dwarfs/{id}/qr_code/": {
+      "get": {
+        "operationId": "dwarfs_qr_code_list",
+        "description": "Generowanie kodu QR dla krasnoludka.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Kod QR dla krasnoludka.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "qr_code": {
+                  "description": "Kod QR jako string w formacie base64",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Nieautoryzowany."
+          },
+          "403": {
+            "description": "Zabronione."
+          },
+          "404": {
+            "description": "Nie znaleziono krasnoludka."
+          }
+        },
+        "tags": [
+          "dwarfs"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/home/": {
+      "get": {
+        "operationId": "home_list",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "home"
+        ]
+      },
+      "parameters": []
+    },
+    "/logout/": {
+      "post": {
+        "operationId": "logout_create",
+        "description": "Wylogowanie użytkownika.",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "refresh_token": {
+                  "description": "Refresh token",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "205": {
+            "description": "Wylogowanie udane."
+          },
+          "400": {
+            "description": "Błąd wylogowania."
+          }
+        },
+        "tags": [
+          "logout"
+        ]
+      },
+      "parameters": []
+    },
+    "/register/": {
+      "post": {
+        "operationId": "register_create",
+        "description": "Rejestracja nowego użytkownika.",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Register"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Rejestracja udana.",
+            "schema": {
+              "$ref": "#/definitions/Register"
+            }
+          },
+          "400": {
+            "description": "Błąd walidacji."
+          }
+        },
+        "tags": [
+          "register"
+        ]
+      },
+      "parameters": []
+    },
+    "/token/": {
+      "post": {
+        "operationId": "token_create",
+        "description": "Takes a set of user credentials and returns an access and refresh JSON web\ntoken pair to prove the authentication of those credentials.",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TokenObtainPair"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/TokenObtainPair"
+            }
+          }
+        },
+        "tags": [
+          "token"
+        ]
+      },
+      "parameters": []
+    },
+    "/token/refresh/": {
+      "post": {
+        "operationId": "token_refresh_create",
+        "description": "Takes a refresh type JSON web token and returns an access type JSON web\ntoken if the refresh token is valid.",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TokenRefresh"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/TokenRefresh"
+            }
+          }
+        },
+        "tags": [
+          "token"
+        ]
+      },
+      "parameters": []
+    },
+    "/user/": {
+      "get": {
+        "operationId": "user_read",
+        "summary": "Widok szczegółów użytkownika.",
+        "description": "Ten widok zwraca szczegółowe informacje o zalogowanym użytkowniku.\nWymaga uwierzytelnienia.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "tags": [
+          "user"
+        ]
+      },
+      "parameters": []
+    },
+    "/user_achievements/": {
+      "get": {
+        "operationId": "user_achievements_list",
+        "description": "Widok listy osiągnięć użytkownika.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/UserAchievement"
+              }
+            }
+          }
+        },
+        "tags": [
+          "user_achievements"
+        ]
+      },
+      "parameters": []
+    },
+    "/user_comments/": {
+      "get": {
+        "operationId": "user_comments_list",
+        "description": "Widok listy komentarzy użytkownika.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Comment"
+              }
+            }
+          }
+        },
+        "tags": [
+          "user_comments"
+        ]
+      },
+      "parameters": []
+    },
+    "/users_ranking/": {
+      "get": {
+        "operationId": "users_ranking_list",
+        "description": "Widok rankingu użytkowników.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }
+        },
+        "tags": [
+          "users_ranking"
+        ]
+      },
+      "parameters": []
+    },
+    "/verify_qr_code/": {
+      "post": {
+        "operationId": "verify_qr_code_create",
+        "description": "Weryfikacja kodu QR.",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "qr_code": {
+                  "description": "Kod QR",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Weryfikacja udana.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "description": "Czy weryfikacja była udana",
+                  "type": "boolean"
+                },
+                "url": {
+                  "description": "URL do szczegółów krasnoludka",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Komunikat",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Nieprawidłowy kod QR."
+          },
+          "401": {
+            "description": "Nieautoryzowany."
+          }
+        },
+        "tags": [
+          "verify_qr_code"
+        ]
+      },
+      "parameters": []
+    }
+  },
+  "definitions": {
+    "Achievement": {
+      "required": [
+        "name",
+        "description",
+        "badge_icon"
+      ],
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string",
+          "maxLength": 100,
+          "minLength": 1
+        },
+        "description": {
+          "title": "Description",
+          "type": "string",
+          "minLength": 1
+        },
+        "badge_icon": {
+          "title": "Badge icon",
+          "type": "string",
+          "maxLength": 255,
+          "minLength": 1
+        }
+      }
+    },
+    "User": {
+      "required": [
+        "username"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "integer",
+          "readOnly": true
+        },
+        "username": {
+          "title": "Username",
+          "type": "string",
+          "maxLength": 50,
+          "minLength": 1
+        },
+        "num_dwarfs": {
+          "title": "Num dwarfs",
+          "type": "string",
+          "readOnly": true
+        },
+        "num_comments": {
+          "title": "Num comments",
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "Dwarf": {
+      "required": [
+        "id",
+        "name",
+        "author",
+        "address",
+        "location",
+        "description",
+        "image_url"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "integer",
+          "maximum": 2147483647,
+          "minimum": -2147483648
+        },
+        "name": {
+          "title": "Name",
+          "type": "string",
+          "maxLength": 100,
+          "minLength": 1
+        },
+        "author": {
+          "title": "Author",
+          "type": "string",
+          "maxLength": 255,
+          "minLength": 1
+        },
+        "address": {
+          "title": "Address",
+          "type": "string",
+          "maxLength": 255,
+          "minLength": 1
+        },
+        "location": {
+          "title": "Location",
+          "type": "string",
+          "maxLength": 255,
+          "minLength": 1
+        },
+        "description": {
+          "title": "Description",
+          "type": "string",
+          "minLength": 1
+        },
+        "image_url": {
+          "title": "Image url",
+          "type": "string",
+          "minLength": 1
+        },
+        "is_unlocked": {
+          "title": "Is unlocked",
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "Comment": {
+      "required": [
+        "comment_text"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "integer",
+          "readOnly": true
+        },
+        "user": {
+          "$ref": "#/definitions/User"
+        },
+        "dwarf": {
+          "$ref": "#/definitions/Dwarf"
+        },
+        "comment_text": {
+          "title": "Comment text",
+          "type": "string",
+          "minLength": 1
+        },
+        "comment_date": {
+          "title": "Comment date",
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "DwarfDetail": {
+      "required": [
+        "id",
+        "name",
+        "author",
+        "address",
+        "location",
+        "description",
+        "image_url"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "integer",
+          "maximum": 2147483647,
+          "minimum": -2147483648
+        },
+        "name": {
+          "title": "Name",
+          "type": "string",
+          "maxLength": 100,
+          "minLength": 1
+        },
+        "author": {
+          "title": "Author",
+          "type": "string",
+          "maxLength": 255,
+          "minLength": 1
+        },
+        "address": {
+          "title": "Address",
+          "type": "string",
+          "maxLength": 255,
+          "minLength": 1
+        },
+        "location": {
+          "title": "Location",
+          "type": "string",
+          "maxLength": 255,
+          "minLength": 1
+        },
+        "description": {
+          "title": "Description",
+          "type": "string",
+          "minLength": 1
+        },
+        "image_url": {
+          "title": "Image url",
+          "type": "string",
+          "minLength": 1
+        },
+        "is_unlocked": {
+          "title": "Is unlocked",
+          "type": "string",
+          "readOnly": true
+        },
+        "comments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Comment"
+          },
+          "readOnly": true
+        },
+        "user_comments_count": {
+          "title": "User comments count",
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "CommentCreate": {
+      "required": [
+        "comment_text"
+      ],
+      "type": "object",
+      "properties": {
+        "comment_text": {
+          "title": "Comment text",
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "Register": {
+      "required": [
+        "username",
+        "password",
+        "password2"
+      ],
+      "type": "object",
+      "properties": {
+        "username": {
+          "title": "Username",
+          "type": "string",
+          "maxLength": 50,
+          "minLength": 1
+        },
+        "password": {
+          "title": "Password",
+          "type": "string",
+          "minLength": 1
+        },
+        "password2": {
+          "title": "Password2",
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "TokenObtainPair": {
+      "required": [
+        "username",
+        "password"
+      ],
+      "type": "object",
+      "properties": {
+        "username": {
+          "title": "Username",
+          "type": "string",
+          "minLength": 1
+        },
+        "password": {
+          "title": "Password",
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "TokenRefresh": {
+      "required": [
+        "refresh"
+      ],
+      "type": "object",
+      "properties": {
+        "refresh": {
+          "title": "Refresh",
+          "type": "string",
+          "minLength": 1
+        },
+        "access": {
+          "title": "Access",
+          "type": "string",
+          "readOnly": true,
+          "minLength": 1
+        }
+      }
+    },
+    "UserAchievement": {
+      "type": "object",
+      "properties": {
+        "achievement": {
+          "$ref": "#/definitions/Achievement"
+        },
+        "achievement_date": {
+          "title": "Achievement date",
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}
