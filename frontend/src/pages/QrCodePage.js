@@ -1,5 +1,11 @@
 // Autorzy: Jonasz Lazar, Kacper Malinowski
 
+// Komponent QrCodePage służy do wyświetlania kodu QR dla wybranego krasnala.
+// Wykorzystuje hook useParams do pobrania id krasnala z parametrów URL.
+// Wykorzystuje hook useEffect do pobrania kodu QR z serwera po załadowaniu komponentu.
+// Jeżeli kod QR jest dostępny, wyświetla go jako obrazek.
+// Jeżeli kod QR jest jeszcze pobierany z serwera, wyświetla komunikat "Loading...".
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';

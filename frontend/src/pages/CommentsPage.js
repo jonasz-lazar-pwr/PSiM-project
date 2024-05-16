@@ -1,5 +1,11 @@
 // Autorzy: Jonasz Lazar, Kacper Malinowski
 
+// Komponent CommentsPage wyświetla listę komentarzy dodanych przez użytkownika do różnych krasnali.
+// Wykorzystuje kontekst AuthContext do uzyskania informacji o aktualnie zalogowanym użytkowniku.
+// Jeżeli użytkownik nie jest zalogowany, przekierowuje go do strony logowania.
+// Wykorzystuje hook useEffect do pobrania komentarzy użytkownika z serwera po załadowaniu komponentu.
+// Każdy komentarz jest wyświetlany jako link, który przekierowuje do strony krasnala, do którego komentarz został dodany.
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';

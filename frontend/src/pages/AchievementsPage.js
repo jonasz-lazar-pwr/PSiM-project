@@ -1,5 +1,10 @@
 // Autorzy: Jonasz Lazar, Kacper Malinowski
 
+// Komponent Achievements wyświetla listę osiągnięć użytkownika oraz listę osiągnięć do zdobycia.
+// Wykorzystuje kontekst AuthContext do uzyskania informacji o aktualnie zalogowanym użytkowniku.
+// Jeżeli użytkownik nie jest zalogowany, przekierowuje go do strony logowania.
+// Wykorzystuje hook useEffect do pobrania osiągnięć użytkownika oraz osiągnięć do zdobycia z serwera po załadowaniu komponentu.
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Layout from '../components/Layout';

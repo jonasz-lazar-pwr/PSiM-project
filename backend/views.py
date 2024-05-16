@@ -107,11 +107,6 @@ class LogoutView(APIView):
 class RegisterView(APIView):
     """
     Widok rejestracji użytkownika.
-
-    Jeżeli metoda żądania to 'POST', próbuje zarejestrować użytkownika za pomocą danych przesłanych w żądaniu.
-    Jeżeli rejestracja jest udana, loguje użytkownika i zwraca odpowiedź z danymi użytkownika.
-    Jeżeli rejestracja nie jest udana, zwraca błąd z informacją o błędach walidacji.
-    Jeżeli metoda żądania to 'GET', renderuje formularz rejestracji.
     """
 
     @swagger_auto_schema(
@@ -176,10 +171,6 @@ class DwarfListView(APIView):
     """
     Widok listy krasnoludków.
 
-    GET:
-    Zwraca listę krasnoludków, które pasują do zapytania wyszukiwania przesłanego w żądaniu.
-    Jeżeli zapytanie wyszukiwania jest puste, zwraca wszystkie krasnoludki.
-    Zwraca listę krasnoludków, liczbę wszystkich krasnoludków oraz liczbę krasnoludków odwiedzonych przez zalogowanego użytkownika.
     Nie wymaga uwierzytelnienia.
     """
 
@@ -233,8 +224,6 @@ class DwarfDetailView(generics.RetrieveAPIView):
     """
     Widok szczegółów krasnoludka.
 
-    GET:
-    Zwraca szczegółowe informacje o krasnoludku.
     Nie wymaga uwierzytelnienia.
     """
 
@@ -265,8 +254,6 @@ class CommentDeleteView(generics.DestroyAPIView):
     """
     Widok usuwania komentarza.
 
-    DELETE:
-    Usuwa komentarz.
     Wymaga uwierzytelnienia i tego, że zalogowany użytkownik jest autorem komentarza.
     """
 
@@ -301,8 +288,6 @@ class CommentCreateView(APIView):
     """
     Widok tworzenia komentarza.
 
-    POST:
-    Tworzy komentarz.
     Wymaga uwierzytelnienia i tego, że zalogowany użytkownik zdobył krasnoludka, do którego chce dodać komentarz.
     """
 
@@ -350,8 +335,6 @@ class GenerateQRCodeView(APIView):
     """
     Widok generowania kodu QR.
 
-    GET:
-    Generuje kod QR, który prowadzi do szczegółów krasnoludka o podanym ID.
     Wymaga uwierzytelnienia i uprawnień administratora.
     """
 
@@ -404,8 +387,6 @@ class VerifyQRCodeView(APIView):
     """
     Widok weryfikacji kodu QR.
 
-    POST:
-    Weryfikuje kod QR przesłany w żądaniu.
     Wymaga uwierzytelnienia.
     """
 
@@ -460,11 +441,6 @@ class VerifyQRCodeView(APIView):
 class UserRankingView(generics.ListAPIView):
     """
     Widok rankingu użytkowników.
-
-    GET:
-    Zwraca listę użytkowników posortowaną według podanego kryterium sortowania.
-    Domyślnym kryterium sortowania jest liczba zdobytych krasnoludków.
-    Możliwe kryteria sortowania to: 'num_dwarfs' (liczba zdobytych krasnoludków) i 'num_comments' (liczba dodanych komentarzy).
     """
 
     serializer_class = UserSerializer
@@ -497,8 +473,6 @@ class UserCommentsView(generics.ListAPIView):
     """
     Widok listy komentarzy użytkownika.
 
-    GET:
-    Zwraca listę komentarzy dodanych przez zalogowanego użytkownika.
     Wymaga uwierzytelnienia.
     """
 
@@ -526,8 +500,6 @@ class UserAchievementsView(generics.ListAPIView):
     """
     Widok listy osiągnięć użytkownika.
 
-    GET:
-    Zwraca listę osiągnięć zdobytych przez zalogowanego użytkownika.
     Wymaga uwierzytelnienia.
     """
 
@@ -555,8 +527,6 @@ class AchievementsToGainView(generics.ListAPIView):
     """
     Widok listy osiągnięć do zdobycia przez użytkownika.
 
-    GET:
-    Zwraca listę osiągnięć, które zalogowany użytkownik może jeszcze zdobyć.
     Wymaga uwierzytelnienia.
     """
 

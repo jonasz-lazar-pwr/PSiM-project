@@ -1,5 +1,10 @@
 // Autorzy: Jonasz Lazar, Kacper Malinowski
 
+// Plik AuthContext.js definiuje kontekst autoryzacji, który jest używany do zarządzania stanem autoryzacji użytkownika w aplikacji.
+// Kontekst ten zawiera informacje o aktualnie zalogowanym użytkowniku i tokenach autoryzacji, a także funkcje do logowania, rejestracji i wylogowywania użytkownika.
+// Kontekst korzysta z hooka useEffect do pobrania pełnych informacji o użytkowniku z serwera po każdej zmianie tokenów autoryzacji.
+// Jeżeli tokeny autoryzacji są przechowywane w pamięci lokalnej przeglądarki, są one używane do ustawienia początkowego stanu kontekstu.
+
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";

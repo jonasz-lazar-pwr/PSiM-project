@@ -1,5 +1,11 @@
 // Autorzy: Jonasz Lazar, Kacper Malinowski
 
+// Komponent CommentDwarfPage pozwala użytkownikowi na dodanie komentarza do wybranego krasnala.
+// Wykorzystuje kontekst AuthContext do uzyskania informacji o aktualnie zalogowanym użytkowniku.
+// Jeżeli użytkownik nie jest zalogowany, krasnal jest zablokowany lub użytkownik już skomentował tego krasnala, przekierowuje go do strony krasnala.
+// Wykorzystuje hook useEffect do pobrania danych o krasnalu po załadowaniu komponentu.
+// Po wypełnieniu formularza, komentarz jest wysyłany do serwera, a następnie użytkownik jest przekierowywany do strony krasnala.
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';

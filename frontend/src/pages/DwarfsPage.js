@@ -1,5 +1,12 @@
 // Autorzy: Jonasz Lazar, Kacper Malinowski
 
+// Komponent DwarfsPage wyświetla listę wszystkich krasnali.
+// Wykorzystuje kontekst AuthContext do uzyskania informacji o aktualnie zalogowanym użytkowniku.
+// Wykorzystuje hook useEffect do pobrania danych o krasnalach z serwera po załadowaniu komponentu.
+// Użytkownik może wyszukać krasnala wpisując jego nazwę w polu wyszukiwania.
+// Jeżeli krasnal jest odblokowany dla użytkownika, obok nazwy krasnala wyświetla się informacja "zdobyty".
+// Jeżeli użytkownik nie jest zalogowany, wyświetla tylko listę krasnali bez informacji o ich zdobyciu.
+
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import axios from 'axios';

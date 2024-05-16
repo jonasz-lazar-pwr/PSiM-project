@@ -1,5 +1,12 @@
 // Autorzy: Jonasz Lazar, Kacper Malinowski
 
+// Komponent RankingPage służy do wyświetlania rankingu użytkowników.
+// Wykorzystuje kontekst AuthContext do uzyskania informacji o aktualnie zalogowanym użytkowniku.
+// Wykorzystuje hook useEffect do pobrania rankingu użytkowników z serwera po załadowaniu komponentu.
+// Użytkownik może sortować ranking według liczby zdobytych krasnali lub liczby dodanych komentarzy.
+// Jeżeli użytkownik nie jest zalogowany, jest przekierowywany na stronę logowania.
+// W rankingu, wiersz z aktualnie zalogowanym użytkownikiem jest wyróżniony.
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';

@@ -1,5 +1,10 @@
 // Autorzy: Jonasz Lazar, Kacper Malinowski
 
+// Komponent MainPage służy jako strona główna aplikacji.
+// Wykorzystuje kontekst AuthContext do uzyskania informacji o aktualnie zalogowanym użytkowniku.
+// Wyświetla listę linków do różnych stron aplikacji.
+// Jeżeli użytkownik jest zalogowany, wyświetla dodatkowe linki do stron związanych z użytkownikiem, takich jak ranking użytkowników, osiągnięcia użytkownika, komentarze użytkownika i skanowanie kodu QR.
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';

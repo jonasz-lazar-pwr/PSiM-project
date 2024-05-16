@@ -1,5 +1,14 @@
 // Autorzy: Jonasz Lazar, Kacper Malinowski
 
+// Komponent RegisterPage służy do rejestracji nowych użytkowników.
+// Wykorzystuje kontekst AuthContext do rejestracji użytkowników i uzyskania informacji o aktualnie zalogowanym użytkowniku.
+// Wykorzystuje hook useEffect do przekierowania zalogowanego użytkownika na stronę główną.
+// Użytkownik wprowadza swoją nazwę użytkownika i hasło (dwukrotnie), które są przechowywane w stanie komponentu.
+// Po naciśnięciu przycisku "Zarejestruj się", dane są przekazywane do funkcji registerUser z kontekstu AuthContext.
+// Jeżeli hasła nie są takie same, wyświetlany jest komunikat o błędzie.
+// Jeżeli rejestracja się nie powiedzie, wyświetlany jest komunikat o błędzie.
+// Jeżeli rejestracja się powiedzie, użytkownik jest przekierowywany na stronę główną.
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
@@ -21,7 +30,7 @@ const RegisterPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (password !== password2) { // Sprawdź, czy hasła są takie same
+        if (password !== password2) {
             setError('Hasła nie są takie same. Spróbuj ponownie.');
             return;
         }

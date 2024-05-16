@@ -1,5 +1,9 @@
 // Autorzy: Jonasz Lazar, Kacper Malinowski
 
+// Główny plik aplikacji React. Definiuje routing (ścieżki URL) dla całej aplikacji.
+// Każda ścieżka URL jest skojarzona z konkretnym komponentem, który jest renderowany, gdy użytkownik odwiedza daną ścieżkę.
+// Autoryzacja użytkowników jest obsługiwana przez kontekst AuthProvider.
+
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainPage from './pages/MainPage';

@@ -1,5 +1,12 @@
 // Autorzy: Jonasz Lazar, Kacper Malinowski
 
+// Komponent ScanQrCodePage służy do skanowania kodów QR.
+// Wykorzystuje bibliotekę html5-qrcode do skanowania kodów QR.
+// Wykorzystuje hook useEffect do inicjalizacji skanera po załadowaniu komponentu.
+// Po zeskanowaniu kodu QR, dane są przekazywane do serwera do weryfikacji.
+// Jeżeli weryfikacja się powiedzie, użytkownik jest przekierowywany na odpowiednią stronę.
+// Jeżeli weryfikacja się nie powiedzie, wyświetlany jest komunikat o błędzie.
+
 import React, { useEffect, useRef } from 'react';
 import axios from 'axios';
 import { Html5QrcodeScanner } from 'html5-qrcode';

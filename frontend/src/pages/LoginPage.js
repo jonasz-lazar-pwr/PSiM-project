@@ -1,10 +1,17 @@
 // Autorzy: Jonasz Lazar, Kacper Malinowski
 
+// Komponent LoginPage służy do logowania użytkowników.
+// Wykorzystuje kontekst AuthContext do logowania użytkowników i uzyskania informacji o aktualnie zalogowanym użytkowniku.
+// Wykorzystuje hook useEffect do przekierowania zalogowanego użytkownika na stronę główną.
+// Użytkownik wprowadza swoją nazwę użytkownika i hasło, które są przechowywane w stanie komponentu.
+// Po naciśnięciu przycisku "Zaloguj się", dane są przekazywane do funkcji loginUser z kontekstu AuthContext.
+// Jeżeli logowanie się nie powiedzie, wyświetlany jest komunikat o błędzie.
+// Jeżeli logowanie się powiedzie, użytkownik jest przekierowywany na stronę główną.
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import Layout from '../components/Layout';
-
 
 const LoginPage = () => {
     const { user, loginUser } = useAuth();

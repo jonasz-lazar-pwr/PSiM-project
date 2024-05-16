@@ -1,5 +1,10 @@
 // Autorzy: Jonasz Lazar, Kacper Malinowski
 
+// Komponent Layout jest głównym szablonem dla stron w naszej aplikacji React.
+// Zawiera nawigację (pasek menu) i miejsce, gdzie będą renderowane dzieci (inne komponenty).
+// Nawigacja dostosowuje się dynamicznie w zależności od tego, czy użytkownik jest zalogowany, oraz od aktualnej ścieżki URL.
+// Komponent korzysta z kontekstu AuthContext, aby uzyskać informacje o aktualnie zalogowanym użytkowniku i funkcję do wylogowywania.
+
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';

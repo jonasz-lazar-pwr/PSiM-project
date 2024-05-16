@@ -22,6 +22,9 @@ class CustomUserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser):
+    """
+    Model reprezentująca użytkownika.
+    """
     id = models.AutoField(primary_key=True)
     username = models.CharField(max_length=50, unique=True)
     joined_date = models.DateTimeField(default=timezone.now)
@@ -37,6 +40,9 @@ class User(AbstractBaseUser):
         db_table = 'users'
 
     def __str__(self):
+        """
+        Zwraca reprezentację tekstową obiektu.
+        """
         return self.username
 
     def has_perm(self, perm, obj=None):
@@ -51,6 +57,9 @@ class User(AbstractBaseUser):
 
 
 class Dwarf(models.Model):
+    """
+    Model reprezentująca krasnoludka.
+    """
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=100, unique=True)
     author = models.CharField(max_length=255)
@@ -60,34 +69,49 @@ class Dwarf(models.Model):
     image_url = models.TextField()
 
     class Meta:
-        managed = True
-        db_table = 'dwarfs'
-        verbose_name_plural = 'Dwarfs'
+        managed = True  # Django zarządza tym modelem.
+        db_table = 'dwarfs'  # Nazwa tabeli w bazie danych.
+        verbose_name_plural = 'Dwarfs'  # Nazwa modelu w liczbie mnogiej.
 
     @property
     def comments(self):
+        """
+        Zwraca wszystkie komentarze do tego krasnoluda.
+        """
         return self.comment_set.all()
 
     def __str__(self):
+        """
+        Zwraca reprezentację tekstową obiektu.
+        """
         return self.name
 
 
 class UserDwarf(models.Model):
+    """
+    Model reprezentujący relację między użytkownikiem a krasnoludem.
+    """
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     dwarf = models.ForeignKey(Dwarf, on_delete=models.CASCADE)
     visited_date = models.DateTimeField(default=timezone.now)
 
     class Meta:
-        managed = True
-        db_table = 'userdwarfs'
-        verbose_name_plural = 'UserDwarfs'
+        managed = True  # Django zarządza tym modelem.
+        db_table = 'userdwarfs'  # Nazwa tabeli w bazie danych.
+        verbose_name_plural = 'UserDwarfs'  # Nazwa modelu w liczbie mnogiej.
 
     def __str__(self):
+        """
+        Zwraca reprezentację tekstową obiektu.
+        """
         return f'{self.user.username} - {self.dwarf.name}'
 
 
 class Comment(models.Model):
+    """
+    Model reprezentujący komentarz.
+    """
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     dwarf = models.ForeignKey(Dwarf, on_delete=models.CASCADE)
@@ -95,15 +119,21 @@ class Comment(models.Model):
     comment_date = models.DateTimeField(default=timezone.now)
 
     class Meta:
-        managed = True
-        db_table = 'comments'
-        verbose_name_plural = 'Comments'
+        managed = True  # Django zarządza tym modelem.
+        db_table = 'comments'  # Nazwa tabeli w bazie danych.
+        verbose_name_plural = 'Comments'  # Nazwa modelu w liczbie mnogiej.
 
     def __str__(self):
+        """
+        Zwraca reprezentację tekstową obiektu.
+        """
         return self.comment_text
 
 
 class Achievement(models.Model):
+    """
+    Model reprezentujący osiągnięcie.
+    """
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100, unique=True)
     comment_count = models.IntegerField()
@@ -121,6 +151,9 @@ class Achievement(models.Model):
 
 
 class UserAchievement(models.Model):
+    """
+    Model reprezentujący relację między użytkownikiem a osiągnięciem.
+    """
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     achievement = models.ForeignKey(Achievement, on_delete=models.CASCADE)

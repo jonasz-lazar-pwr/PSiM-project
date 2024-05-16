@@ -1,5 +1,13 @@
 // Autorzy: Jonasz Lazar, Kacper Malinowski
 
+// Komponent DwarfDetailPage wyświetla szczegółowe informacje o wybranym krasnalu.
+// Wykorzystuje kontekst AuthContext do uzyskania informacji o aktualnie zalogowanym użytkowniku.
+// Wykorzystuje hook useEffect do pobrania danych o krasnalu z serwera po załadowaniu komponentu.
+// Jeżeli krasnal jest odblokowany dla użytkownika, wyświetla listę komentarzy dodanych do tego krasnala.
+// Użytkownik może usunąć swój komentarz, klikając przycisk "Usuń komentarz".
+// Jeżeli krasnal jest zablokowany, wyświetla przycisk "Skanuj QR", który przekierowuje do strony skanowania kodu QR.
+// Jeżeli użytkownik nie jest zalogowany, wyświetla komunikat zachęcający do założenia konta.
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
